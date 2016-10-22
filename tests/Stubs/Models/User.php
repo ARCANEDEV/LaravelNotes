@@ -22,4 +22,8 @@ class User extends Model
      | ------------------------------------------------------------------------------------------------
      */
     protected $fillable = ['name', 'email'];
+
+    protected $casts = [
+        'id' => 'integer',
+    ];
 }
