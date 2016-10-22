@@ -81,8 +81,8 @@ class NoteTest extends TestCase
         $this->assertInstanceOf(User::class, $note->author);
         $this->assertInstanceOf(User::class, $post->note->author);
 
-        $this->assertSame($user->id, $note->author->id);
-        $this->assertSame($user->id, $post->note->author->id);
+        $this->assertEquals($user->id, $note->author->id);
+        $this->assertEquals($user->id, $post->note->author->id);
     }
 
     /** @test */
