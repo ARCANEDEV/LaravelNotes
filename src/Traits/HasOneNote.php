@@ -1,5 +1,7 @@
 <?php namespace Arcanedev\LaravelNotes\Traits;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Trait     HasOneNote
  *
@@ -68,7 +70,7 @@ trait HasOneNote
      *
      * @return bool
      */
-    public function updateNote($content, $author = null, $reload = true)
+    public function updateNote($content, Model $author = null, $reload = true)
     {
         $updated = $this->note->update(
             $this->prepareNoteAttributes($content, $author)
@@ -91,7 +93,7 @@ trait HasOneNote
      *
      * @return array
      */
-    protected function prepareNoteAttributes($content, $author)
+    protected function prepareNoteAttributes($content, Model $author = null)
     {
         return [
             'content'   => $content,
