@@ -1,15 +1,15 @@
-<?php namespace Arcanedev\LaravelNotes\Bases;
+<?php namespace Arcanedev\LaravelNotes\Models;
 
 use Arcanedev\LaravelNotes\Traits\ConfigHelper;
 use Arcanedev\Support\Bases\Model as BaseModel;
 
 /**
- * Class     Model
+ * Class     AbstractModel
  *
  * @package  Arcanedev\LaravelMessenger\Bases
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
-abstract class Model extends BaseModel
+abstract class AbstractModel extends BaseModel
 {
     /* ------------------------------------------------------------------------------------------------
      |  Traits

@@ -1,7 +1,5 @@
 <?php namespace Arcanedev\LaravelNotes\Models;
 
-use Arcanedev\LaravelNotes\Bases\Model;
-
 /**
  * Class     Note
  *
@@ -13,11 +11,12 @@ use Arcanedev\LaravelNotes\Bases\Model;
  * @property  int                                  noteable_id
  * @property  string                               noteable_type
  * @property  int                                  author_id
- * @property  \Illuminate\Database\Eloquent\Model  author
  * @property  \Carbon\Carbon                       created_at
  * @property  \Carbon\Carbon                       updated_at
+ *
+ * @property  \Illuminate\Database\Eloquent\Model  author
  */
-class Note extends Model
+class Note extends AbstractModel
 {
     /* ------------------------------------------------------------------------------------------------
      |  Properties

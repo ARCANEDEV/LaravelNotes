@@ -1,6 +1,6 @@
 <?php namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
 
-use Arcanedev\LaravelNotes\Bases\Model;
+use Arcanedev\LaravelNotes\Models\AbstractModel;
 use Arcanedev\LaravelNotes\Traits\HasOneNote;
 
 /**
@@ -9,7 +9,7 @@ use Arcanedev\LaravelNotes\Traits\HasOneNote;
  * @package  Arcanedev\LaravelNotes\Tests\Stubs\Models
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
-class Post extends Model
+class Post extends AbstractModel
 {
     /* ------------------------------------------------------------------------------------------------
      |  Traits

@@ -54,6 +54,7 @@ class LaravelNotesServiceProvider extends PackageServiceProvider
     {
         parent::boot();
 
+        $this->publishConfig();
         $this->publishMigrations();
     }
 
