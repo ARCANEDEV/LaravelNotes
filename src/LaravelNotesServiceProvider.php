@@ -10,40 +10,30 @@ use Arcanedev\Support\PackageServiceProvider;
  */
 class LaravelNotesServiceProvider extends PackageServiceProvider
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Properties
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     /**
      * Package name.
      *
      * @var string
      */
-    protected $package = 'laravel-notes';
+    protected $package = 'notes';
 
-    /* ------------------------------------------------------------------------------------------------
-     |  Getters & Setters
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Main Methods
+     | -----------------------------------------------------------------
      */
-    /**
-     * Get the base path of the package.
-     *
-     * @return string
-     */
-    public function getBasePath()
-    {
-        return dirname(__DIR__);
-    }
 
-    /* ------------------------------------------------------------------------------------------------
-     |  Main Functions
-     | ------------------------------------------------------------------------------------------------
-     */
     /**
      * Register the service provider.
      */
     public function register()
     {
+        parent::register();
+
         $this->registerConfig();
     }
 
@@ -55,7 +45,7 @@ class LaravelNotesServiceProvider extends PackageServiceProvider
         parent::boot();
 
         $this->publishConfig();
-        $this->publishMigrations();
+        $this->loadMigrations();
     }
 
     /**
