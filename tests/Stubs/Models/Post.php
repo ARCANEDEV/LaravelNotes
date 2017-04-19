@@ -8,18 +8,29 @@ use Arcanedev\LaravelNotes\Traits\HasOneNote;
  *
  * @package  Arcanedev\LaravelNotes\Tests\Stubs\Models
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
+ *
+ * @property  int     id
+ * @property  string  title
+ * @property  string  content
  */
 class Post extends AbstractModel
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Traits
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     use HasOneNote;
 
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Properties
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
-    protected $fillable = ['name', 'email'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['title', 'content'];
 }
