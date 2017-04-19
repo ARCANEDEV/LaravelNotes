@@ -11,27 +11,28 @@ use Arcanedev\Support\Bases\Model as BaseModel;
  */
 abstract class AbstractModel extends BaseModel
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Traits
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     use ConfigHelper;
 
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Constructor
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     /**
-     * Create a new Eloquent model instance.
+     * AbstractModel constructor.
      *
      * @param  array  $attributes
      */
     public function __construct(array $attributes = [])
     {
-        $this->setConnection(
-            $this->getFromConfig('database.connection')
-        );
-
         parent::__construct($attributes);
+
+        $this->setConnection($this->getFromConfig('database.connection'));
+        $this->setPrefix($this->getFromConfig('database.prefix'));
     }
 }

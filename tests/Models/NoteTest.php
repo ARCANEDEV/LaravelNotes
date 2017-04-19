@@ -14,7 +14,7 @@ use Arcanedev\LaravelNotes\Tests\TestCase;
 class NoteTest extends TestCase
 {
     /* ------------------------------------------------------------------------------------------------
-     |  Test Functions
+     |  Has One Note Tests
      | ------------------------------------------------------------------------------------------------
      */
     /** @test */
@@ -110,5 +110,39 @@ class NoteTest extends TestCase
         $this->assertNotSame($note->content, $post->note->content);
 
         $this->assertCount(1, Note::all());
+    }
+
+    /** @test */
+    public function it_can_reverse_relation()
+    {
+        /** @var  Post  $post */
+        $post = $this->factory->create(Post::class);
+
+        $this->assertNull($post->note);
+
+        $note = $post->createNote($content = 'Hello world #1');
+
+        $this->assertSame($post->id, $note->noteable->id);
+        $this->assertSame($post->title, $note->noteable->title);
+        $this->assertSame($post->content, $note->noteable->content);
+    }
+
+    /* -----------------------------------------------------------------
+     |  Has Many Notes Tests
+     | -----------------------------------------------------------------
+     */
+    /** @test */
+    public function it_can_add_note()
+    {
+        /** @var  User  $user */
+        $user = $this->factory->create(User::class);
+
+        $this->assertCount(0, $user->notes);
+
+        $note = $user->createNote($content = 'Hello world #1');
+
+        $this->assertCount(1, $user->notes);
+
+        $this->assertSame($user->id, $note->author->id);
     }
 }

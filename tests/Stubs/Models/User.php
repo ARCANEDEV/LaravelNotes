@@ -17,13 +17,38 @@ class User extends AbstractModel
      */
     use HasManyNotes;
 
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Properties
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
+     */
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
     protected $fillable = ['name', 'email'];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     protected $casts = [
         'id' => 'integer',
     ];
+
+    /* -----------------------------------------------------------------
+     |  Other Methods
+     | -----------------------------------------------------------------
+     */
+    /**
+     * Get the current author's id.
+     *
+     * @return int|null
+     */
+    protected function getCurrentAuthorId()
+    {
+        return $this->id;
+    }
 }

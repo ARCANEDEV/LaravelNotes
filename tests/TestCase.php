@@ -12,17 +12,19 @@ use Illuminate\Database\Eloquent\Factory as ModelFactory;
  */
 abstract class TestCase extends BaseTestCase
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Properties
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     /** @var  \Illuminate\Database\Eloquent\Factory */
     protected $factory;
 
-    /* ------------------------------------------------------------------------------------------------
-     |  Main Functions
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Main Methods
+     | -----------------------------------------------------------------
      */
+
     public function setUp()
     {
         parent::setUp();
@@ -31,15 +33,6 @@ abstract class TestCase extends BaseTestCase
         $this->loadFactories();
     }
 
-    public function tearDown()
-    {
-        parent::tearDown();
-    }
-
-    /* ------------------------------------------------------------------------------------------------
-     |  Laravel Functions
-     | ------------------------------------------------------------------------------------------------
-     */
     /**
      * Get package providers.
      *
@@ -50,6 +43,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
+            \Orchestra\Database\ConsoleServiceProvider::class,
             \Arcanedev\LaravelNotes\LaravelNotesServiceProvider::class,
         ];
     }
@@ -80,9 +74,14 @@ abstract class TestCase extends BaseTestCase
         $app['config']->set('auth.model', Stubs\Models\User::class);
 
         // Laravel Messenger Configs
-        $app['config']->set('laravel-notes.database.connection', 'testing');
-        $app['config']->set('laravel-notes.authors.model', Stubs\Models\User::class);
+        $app['config']->set('notes.database.connection', 'testing');
+        $app['config']->set('notes.authors.model', Stubs\Models\User::class);
     }
+
+    /* -----------------------------------------------------------------
+     |  Other Methods
+     | -----------------------------------------------------------------
+     */
 
     /**
      * Migrate the tables.

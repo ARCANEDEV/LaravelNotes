@@ -8,10 +8,11 @@
  */
 trait ConfigHelper
 {
-    /* ------------------------------------------------------------------------------------------------
-     |  Helper Functions
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Main Methods
+     | -----------------------------------------------------------------
      */
+
     /**
      * Get table from config.
      *
@@ -48,6 +49,6 @@ trait ConfigHelper
      */
     protected function getFromConfig($key, $default = null)
     {
-        return config("laravel-notes.{$key}", $default);
+        return config("notes.{$key}", $default);
     }
 }
