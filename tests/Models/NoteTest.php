@@ -3,6 +3,7 @@
 use Arcanedev\LaravelNotes\Models\Note;
 use Arcanedev\LaravelNotes\Tests\Stubs\Models\Post;
 use Arcanedev\LaravelNotes\Tests\Stubs\Models\User;
+use Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId;
 use Arcanedev\LaravelNotes\Tests\TestCase;
 
 /**
@@ -131,6 +132,7 @@ class NoteTest extends TestCase
      |  Has Many Notes Tests
      | -----------------------------------------------------------------
      */
+
     /** @test */
     public function it_can_add_note()
     {
@@ -142,7 +144,32 @@ class NoteTest extends TestCase
         $note = $user->createNote($content = 'Hello world #1');
 
         $this->assertCount(1, $user->notes);
+        $this->assertNull($note->author);
+    }
 
+    /** @test */
+    public function it_can_add_note_without_get_current_author_id_method()
+    {
+        /** @var  UserWithAuthorId  $user */
+        $user = $this->factory->create(UserWithAuthorId::class);
+
+        $this->assertCount(0, $user->notes);
+
+        $note = $user->createNote($content = 'Hello world #1');
+
+        $this->assertCount(1, $user->notes);
         $this->assertSame($user->id, $note->author->id);
+    }
+
+    /** @test */
+    public function it_can_find_note_by_its_id()
+    {
+        /** @var  User  $user */
+        $user = $this->factory->create(User::class);
+
+        $created = $user->createNote($content = 'Hello world #1');
+        $note    = $user->findNote($created->id);
+
+        $this->assertSame($note->id, $created->id);
     }
 }
