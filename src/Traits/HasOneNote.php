@@ -100,8 +100,18 @@ trait HasOneNote
     protected function prepareNoteAttributes($content, Model $author = null)
     {
         return [
-            'author_id' => is_null($author) ? null : $author->getKey(),
+            'author_id' => is_null($author) ? $this->getCurrentAuthorId() : $author->getKey(),
             'content'   => $content,
         ];
+    }
+
+    /**
+     * Get the current author's id.
+     *
+     * @return int|null
+     */
+    protected function getCurrentAuthorId()
+    {
+        return null;
     }
 }

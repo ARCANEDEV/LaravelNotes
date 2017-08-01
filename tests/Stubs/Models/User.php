@@ -8,19 +8,29 @@ use Arcanedev\LaravelNotes\Traits\HasManyNotes;
  *
  * @package  Arcanedev\LaravelNotes\Tests\Stubs\Models
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
+ *
+ * @property  int  id
  */
 class User extends AbstractModel
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Traits
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     use HasManyNotes;
 
     /* -----------------------------------------------------------------
      |  Properties
      | -----------------------------------------------------------------
      */
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -37,18 +47,4 @@ class User extends AbstractModel
     protected $casts = [
         'id' => 'integer',
     ];
-
-    /* -----------------------------------------------------------------
-     |  Other Methods
-     | -----------------------------------------------------------------
-     */
-    /**
-     * Get the current author's id.
-     *
-     * @return int|null
-     */
-    protected function getCurrentAuthorId()
-    {
-        return $this->id;
-    }
 }
