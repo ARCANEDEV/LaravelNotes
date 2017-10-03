@@ -7,6 +7,8 @@ use Illuminate\Database\Schema\Blueprint;
  * Class     CreateDiscussionsTable
  *
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
+ *
+ * @see \Arcanedev\LaravelNotes\Models\Note
  */
 class CreateNotesTable extends Migration
 {

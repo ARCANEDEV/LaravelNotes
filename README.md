@@ -20,7 +20,7 @@ This Laravel Notes will allow you to add a notes system into your Laravel projec
   * Easy setup &amp; configuration.
   * Well documented &amp; IDE Friendly.
   * Well tested with maximum code quality.
-  * Laravel `5.1 | 5.2 | 5.3 | 5.4` are supported.
+  * Laravel `5.1 | 5.2 | 5.3 | 5.4 | 5.5` are supported.
   * Made with :heart: &amp; :coffee:.
   
 ## Table of contents
@@ -28,10 +28,6 @@ This Laravel Notes will allow you to add a notes system into your Laravel projec
   1. [Installation and Setup](_docs/1.Installation-and-Setup.md)
   2. [Configuration](_docs/2.Configuration.md)
   3. [Usage](_docs/3.Usage.md)
-
-## TODOS
-
-  - [ ] Complete Documentation.
 
 ## Contribution
 
@@ -46,7 +42,7 @@ If you discover any security related issues, please email arcanedev.maroc@gmail.
   - [ARCANEDEV][link-author]
   - [All Contributors][link-contributors]
 
-[badge_laravel]:      https://img.shields.io/badge/For%20Laravel-5.1%20to%205.4-orange.svg?style=flat-square
+[badge_laravel]:      https://img.shields.io/badge/For%20Laravel-5.1%20to%205.5-orange.svg?style=flat-square
 [badge_license]:      https://img.shields.io/packagist/l/arcanedev/laravel-notes.svg?style=flat-square
 [badge_build]:        https://img.shields.io/travis/ARCANEDEV/LaravelNotes.svg?style=flat-square
 [badge_coverage]:     https://img.shields.io/scrutinizer/coverage/g/ARCANEDEV/LaravelNotes.svg?style=flat-square
