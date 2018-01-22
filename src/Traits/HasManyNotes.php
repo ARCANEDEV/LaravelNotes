@@ -15,13 +15,6 @@ use Illuminate\Database\Eloquent\Model;
 trait HasManyNotes
 {
     /* -----------------------------------------------------------------
-     |  Traits
-     | -----------------------------------------------------------------
-     */
-
-    use ConfigHelper;
-
-    /* -----------------------------------------------------------------
      |  Relationships
      | -----------------------------------------------------------------
      */
@@ -33,7 +26,7 @@ trait HasManyNotes
      */
     public function notes()
     {
-        return $this->morphMany($this->getModelFromConfig('notes'), 'noteable');
+        return $this->morphMany(config('notes.notes.model'), 'noteable');
     }
 
     /* -----------------------------------------------------------------
