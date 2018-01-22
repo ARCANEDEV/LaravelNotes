@@ -15,13 +15,6 @@ use Illuminate\Database\Eloquent\Model;
 trait HasOneNote
 {
     /* -----------------------------------------------------------------
-     |  Traits
-     | -----------------------------------------------------------------
-     */
-
-    use ConfigHelper;
-
-    /* -----------------------------------------------------------------
      |  Relationships
      | -----------------------------------------------------------------
      */
@@ -33,7 +26,7 @@ trait HasOneNote
      */
     public function note()
     {
-        return $this->morphOne($this->getModelFromConfig('notes'), 'noteable');
+        return $this->morphOne(config('notes.notes.model'), 'noteable');
     }
 
     /* -----------------------------------------------------------------
