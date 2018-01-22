@@ -6,12 +6,12 @@ use Arcanedev\LaravelNotes\Models\Note;
 use Illuminate\Support\Facades\Config;
 
 /**
- * Trait     AuthoredNotesTrait
+ * Trait     AuthoredNotes
  *
  * @package  Arcanedev\LaravelNotes\Traits
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
-trait AuthoredNotesTrait
+trait AuthoredNotes
 {
     /* -----------------------------------------------------------------
      |  Relationships
