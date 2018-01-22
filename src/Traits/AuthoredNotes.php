@@ -3,7 +3,6 @@
 namespace Arcanedev\LaravelNotes\Traits;
 
 use Arcanedev\LaravelNotes\Models\Note;
-use Illuminate\Support\Facades\Config;
 
 /**
  * Trait     AuthoredNotes
@@ -25,7 +24,7 @@ trait AuthoredNotes
      */
     public function authoredNotes()
     {
-        return $this->hasMany(Config::get('notes.notes.model', Note::class), 'author_id');
+        return $this->hasMany(config('notes.notes.model', Note::class), 'author_id');
     }
 
 }
