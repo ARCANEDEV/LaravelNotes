@@ -1,4 +1,6 @@
-<?php namespace Arcanedev\LaravelNotes\Tests\Models;
+<?php
+
+namespace Arcanedev\LaravelNotes\Tests\Models;
 
 use Arcanedev\LaravelNotes\Models\Note;
 use Arcanedev\LaravelNotes\Tests\Stubs\Models\Post;
@@ -171,5 +173,38 @@ class NoteTest extends TestCase
         $note    = $user->findNote($created->id);
 
         $this->assertSame($note->id, $created->id);
+    }
+
+    /** @test */
+    public function user_has_some_authored_notes()
+    {
+        /** @var User $user1 */
+        $user1 = $this->factory->create(User::class);
+        $note11 = $user1->createNote('Hello World #1', $user1);
+        $note12 = $user1->createNote('Hello World #2', $user1);
+
+        /** @var User $user2 */
+        $user2 = $this->factory->create(User::class);
+        $note21 = $user2->createNote('Hello World #1', $user2);
+
+        $notes = $user1->authoredNotes;
+
+        $this->assertEquals(2, $notes->count());
+    }
+
+    /** @test */
+    public function user_has_no_authored_notes()
+    {
+        /** @var User $user1 */
+        $user1 = $this->factory->create(User::class);
+        $note11 = $user1->createNote('Hello World #1', $user1);
+        $note12 = $user1->createNote('Hello World #2', $user1);
+
+        /** @var User $user2 */
+        $user2 = $this->factory->create(User::class);
+
+        $notes = $user2->authoredNotes;
+
+        $this->assertEquals(0, $notes->count());
     }
 }

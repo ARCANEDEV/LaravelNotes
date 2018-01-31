@@ -1,6 +1,7 @@
 <?php namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
 
 use Arcanedev\LaravelNotes\Models\AbstractModel;
+use Arcanedev\LaravelNotes\Traits\AuthoredNotes;
 use Arcanedev\LaravelNotes\Traits\HasManyNotes;
 
 /**
@@ -19,6 +20,7 @@ class User extends AbstractModel
      */
 
     use HasManyNotes;
+    use AuthoredNotes;
 
     /* -----------------------------------------------------------------
      |  Properties
