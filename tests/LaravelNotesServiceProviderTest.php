@@ -1,4 +1,5 @@
 <?php namespace Arcanedev\LaravelNotes\Tests;
+
 use Arcanedev\LaravelNotes\LaravelNotesServiceProvider;
 
 /**

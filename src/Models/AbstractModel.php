@@ -1,7 +1,6 @@
 <?php namespace Arcanedev\LaravelNotes\Models;
 
-use Arcanedev\LaravelNotes\Traits\ConfigHelper;
-use Arcanedev\Support\Bases\Model as BaseModel;
+use Arcanedev\Support\Database\Model;
 
 /**
  * Class     AbstractModel
@@ -9,15 +8,8 @@ use Arcanedev\Support\Bases\Model as BaseModel;
  * @package  Arcanedev\LaravelMessenger\Bases
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
-abstract class AbstractModel extends BaseModel
+abstract class AbstractModel extends Model
 {
-    /* -----------------------------------------------------------------
-     |  Traits
-     | -----------------------------------------------------------------
-     */
-
-    use ConfigHelper;
-
     /* -----------------------------------------------------------------
      |  Constructor
      | -----------------------------------------------------------------
@@ -32,7 +24,7 @@ abstract class AbstractModel extends BaseModel
     {
         parent::__construct($attributes);
 
-        $this->setConnection($this->getFromConfig('database.connection'));
-        $this->setPrefix($this->getFromConfig('database.prefix'));
+        $this->setConnection(config('notes.database.connection'));
+        $this->setPrefix(config('notes.database.prefix'));
     }
 }

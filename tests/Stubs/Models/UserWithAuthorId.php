@@ -1,8 +1,5 @@
 <?php namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
 
-use Arcanedev\LaravelNotes\Models\AbstractModel;
-use Arcanedev\LaravelNotes\Traits\HasManyNotes;
-
 /**
  * Class     UserWithAuthorId
  *
@@ -14,10 +11,10 @@ class UserWithAuthorId extends User
     /**
      * Get the current author's id.
      *
-     * @return int|null
+     * @return mixed
      */
     protected function getCurrentAuthorId()
     {
-        return $this->id;
+        return $this->getKey();
     }
 }

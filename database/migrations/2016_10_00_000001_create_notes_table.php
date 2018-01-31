@@ -24,9 +24,7 @@ class CreateNotesTable extends Migration
     {
         parent::__construct();
 
-        $this->setTable(
-            $this->getTableFromConfig('notes', 'notes')
-        );
+        $this->setTable(config('notes.notes.table', 'notes'));
     }
 
     /* -----------------------------------------------------------------
@@ -43,8 +41,13 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->text('content');
             $table->morphs('noteable');
-            $table->integer('author_id', false, true)->nullable();
+            $table->unsignedInteger('author_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('author_id')
+                  ->references('id')
+                  ->on(config('notes.authors.table', 'users'))
+                  ->onDelete('cascade');
         });
     }
 }

@@ -150,7 +150,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_add_note_without_get_current_author_id_method()
     {
-        /** @var  UserWithAuthorId  $user */
+        /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId  $user */
         $user = $this->factory->create(UserWithAuthorId::class);
 
         $this->assertCount(0, $user->notes);
@@ -171,5 +171,41 @@ class NoteTest extends TestCase
         $note    = $user->findNote($created->id);
 
         $this->assertSame($note->id, $created->id);
+    }
+
+    /** @test */
+    public function it_can_retrieve_authored_notes()
+    {
+        /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $user */
+        $user = $this->factory->create(User::class);
+
+        $this->assertCount(0, $user->notes);
+        $this->assertCount(0, $user->authoredNotes);
+
+        $user->createNote('Hello World #1', $user);
+        $user->createNote('Hello World #2', $user);
+
+        $this->assertCount(2, $user->notes);
+        $this->assertCount(2, $user->authoredNotes()->get());
+    }
+
+    /** @test */
+    public function it_must_retrieve_authored_notes_foreach_owner()
+    {
+        /**
+         * @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $userOne
+         * @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $userTwo
+         */
+        $userOne = $this->factory->create(UserWithAuthorId::class);
+        $userTwo = $this->factory->create(UserWithAuthorId::class);
+
+        $userOne->createNote('Hello World #1');
+        $userOne->createNote('Hello World #2', $userTwo);
+
+        $this->assertCount(2, $userOne->notes);
+        $this->assertCount(1, $userOne->authoredNotes);
+
+        $this->assertCount(0, $userTwo->notes);
+        $this->assertCount(1, $userTwo->authoredNotes);
     }
 }

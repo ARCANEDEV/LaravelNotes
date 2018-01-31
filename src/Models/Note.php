@@ -63,7 +63,7 @@ class Note extends AbstractModel
     {
         parent::__construct($attributes);
 
-        $this->setTable($this->getTableFromConfig('notes', 'notes'));
+        $this->setTable(config('notes.notes.table', 'notes'));
     }
 
     /* -----------------------------------------------------------------
@@ -88,6 +88,6 @@ class Note extends AbstractModel
      */
     public function author()
     {
-        return $this->belongsTo($this->getModelFromConfig('authors'));
+        return $this->belongsTo(config('notes.authors.model'));
     }
 }

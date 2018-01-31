@@ -1,7 +1,6 @@
 <?php namespace Arcanedev\LaravelNotes\Bases;
 
-use Arcanedev\LaravelNotes\Traits\ConfigHelper;
-use Arcanedev\Support\Bases\Migration as BaseMigration;
+use Arcanedev\Support\Database\Migration as BaseMigration;
 
 /**
  * Class     Migration
@@ -12,13 +11,6 @@ use Arcanedev\Support\Bases\Migration as BaseMigration;
 abstract class Migration extends BaseMigration
 {
     /* -----------------------------------------------------------------
-     |  Traits
-     | -----------------------------------------------------------------
-     */
-
-    use ConfigHelper;
-
-    /* -----------------------------------------------------------------
      |  Constructor
      | -----------------------------------------------------------------
      */
@@ -28,7 +20,7 @@ abstract class Migration extends BaseMigration
      */
     public function __construct()
     {
-        $this->setConnection($this->getFromConfig('database.connection'));
-        $this->setPrefix($this->getFromConfig('database.prefix'));
+        $this->setConnection(config('notes.database.connection'));
+        $this->setPrefix(config('notes.database.prefix'));
     }
 }
