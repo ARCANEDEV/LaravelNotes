@@ -19,8 +19,8 @@ class User extends AbstractModel
      | -----------------------------------------------------------------
      */
 
-    use HasManyNotes;
-    use AuthoredNotes;
+    use HasManyNotes,
+        AuthoredNotes;
 
     /* -----------------------------------------------------------------
      |  Properties

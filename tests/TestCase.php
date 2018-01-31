@@ -1,6 +1,4 @@
-<?php
-
-namespace Arcanedev\LaravelNotes\Tests;
+<?php namespace Arcanedev\LaravelNotes\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Illuminate\Database\Eloquent\Factory as ModelFactory;

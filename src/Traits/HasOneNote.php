@@ -9,18 +9,9 @@ use Illuminate\Database\Eloquent\Model;
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
  * @property  \Arcanedev\LaravelNotes\Models\Note  note
- *
- * @method    \Illuminate\Database\Eloquent\Relations\MorphOne  morphOne(string $related, string $name, string $type = null, string $id = null, string $localKey = null)
  */
 trait HasOneNote
 {
-    /* -----------------------------------------------------------------
-     |  Traits
-     | -----------------------------------------------------------------
-     */
-
-    use ConfigHelper;
-
     /* -----------------------------------------------------------------
      |  Relationships
      | -----------------------------------------------------------------
@@ -33,7 +24,7 @@ trait HasOneNote
      */
     public function note()
     {
-        return $this->morphOne($this->getModelFromConfig('notes'), 'noteable');
+        return $this->morphOne(config('notes.notes.model'), 'noteable');
     }
 
     /* -----------------------------------------------------------------

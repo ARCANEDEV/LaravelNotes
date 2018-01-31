@@ -1,6 +1,4 @@
-<?php
-
-namespace Arcanedev\LaravelNotes\Tests\Models;
+<?php namespace Arcanedev\LaravelNotes\Tests\Models;
 
 use Arcanedev\LaravelNotes\Models\Note;
 use Arcanedev\LaravelNotes\Tests\Stubs\Models\Post;
@@ -152,7 +150,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_add_note_without_get_current_author_id_method()
     {
-        /** @var  UserWithAuthorId  $user */
+        /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId  $user */
         $user = $this->factory->create(UserWithAuthorId::class);
 
         $this->assertCount(0, $user->notes);
@@ -176,35 +174,38 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function user_has_some_authored_notes()
+    public function it_can_retrieve_authored_notes()
     {
-        /** @var User $user1 */
-        $user1 = $this->factory->create(User::class);
-        $note11 = $user1->createNote('Hello World #1', $user1);
-        $note12 = $user1->createNote('Hello World #2', $user1);
+        /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $user */
+        $user = $this->factory->create(User::class);
 
-        /** @var User $user2 */
-        $user2 = $this->factory->create(User::class);
-        $note21 = $user2->createNote('Hello World #1', $user2);
+        $this->assertCount(0, $user->notes);
+        $this->assertCount(0, $user->authoredNotes);
 
-        $notes = $user1->authoredNotes;
+        $user->createNote('Hello World #1', $user);
+        $user->createNote('Hello World #2', $user);
 
-        $this->assertEquals(2, $notes->count());
+        $this->assertCount(2, $user->notes);
+        $this->assertCount(2, $user->authoredNotes()->get());
     }
 
     /** @test */
-    public function user_has_no_authored_notes()
+    public function it_must_retrieve_authored_notes_foreach_owner()
     {
-        /** @var User $user1 */
-        $user1 = $this->factory->create(User::class);
-        $note11 = $user1->createNote('Hello World #1', $user1);
-        $note12 = $user1->createNote('Hello World #2', $user1);
+        /**
+         * @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $userOne
+         * @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $userTwo
+         */
+        $userOne = $this->factory->create(UserWithAuthorId::class);
+        $userTwo = $this->factory->create(UserWithAuthorId::class);
 
-        /** @var User $user2 */
-        $user2 = $this->factory->create(User::class);
+        $userOne->createNote('Hello World #1');
+        $userOne->createNote('Hello World #2', $userTwo);
 
-        $notes = $user2->authoredNotes;
+        $this->assertCount(2, $userOne->notes);
+        $this->assertCount(1, $userOne->authoredNotes);
 
-        $this->assertEquals(0, $notes->count());
+        $this->assertCount(0, $userTwo->notes);
+        $this->assertCount(1, $userTwo->authoredNotes);
     }
 }
