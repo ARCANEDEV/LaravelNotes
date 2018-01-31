@@ -45,6 +45,11 @@ class CreateNotesTable extends Migration
             $table->morphs('noteable');
             $table->integer('author_id', false, true)->nullable();
             $table->timestamps();
+
+            $table->foreign('author_id')
+                ->references('id')
+                ->on($this->getTableFromConfig('authors', 'users'))
+                ->onDelete('cascade');
         });
     }
 }
