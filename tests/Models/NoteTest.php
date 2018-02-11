@@ -24,17 +24,17 @@ class NoteTest extends TestCase
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
 
-        $this->assertNull($post->note);
+        static::assertNull($post->note);
 
         $note = $post->createNote($content = 'Hello world #1');
 
-        $this->assertInstanceOf(Note::class, $post->note);
+        static::assertInstanceOf(Note::class, $post->note);
 
-        $this->assertSame($note->id,      $post->note->id);
-        $this->assertSame($content,       $post->note->content);
-        $this->assertSame($note->content, $post->note->content);
+        static::assertSame($note->id,      $post->note->id);
+        static::assertSame($content,       $post->note->content);
+        static::assertSame($note->content, $post->note->content);
 
-        $this->assertNull($post->note->author);
+        static::assertNull($post->note->author);
     }
 
     /** @test */
@@ -43,25 +43,25 @@ class NoteTest extends TestCase
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
 
-        $this->assertNull($post->note);
+        static::assertNull($post->note);
 
         $note = $post->createNote($content = 'Hello world #1');
 
-        $this->assertInstanceOf(Note::class, $post->note);
+        static::assertInstanceOf(Note::class, $post->note);
 
-        $this->assertSame($note->id, $post->note->id);
-        $this->assertSame($content, $note->content);
-        $this->assertSame($note->content, $post->note->content);
+        static::assertSame($note->id, $post->note->id);
+        static::assertSame($content, $note->content);
+        static::assertSame($note->content, $post->note->content);
 
         $note = $post->createNote($content = 'Hello world #2');
 
-        $this->assertInstanceOf(Note::class, $post->note);
+        static::assertInstanceOf(Note::class, $post->note);
 
-        $this->assertSame($note->id, $post->note->id);
-        $this->assertSame($content, $note->content);
-        $this->assertSame($note->content, $post->note->content);
+        static::assertSame($note->id, $post->note->id);
+        static::assertSame($content, $note->content);
+        static::assertSame($note->content, $post->note->content);
 
-        $this->assertCount(1, Note::all());
+        static::assertCount(1, Note::all());
     }
 
     /** @test */
@@ -76,14 +76,14 @@ class NoteTest extends TestCase
 
         $note = $post->createNote($content = 'Hello world #1', $user);
 
-        $this->assertSame($content,          $note->content);
-        $this->assertSame($content,          $post->note->content);
+        static::assertSame($content,          $note->content);
+        static::assertSame($content,          $post->note->content);
 
-        $this->assertInstanceOf(User::class, $note->author);
-        $this->assertInstanceOf(User::class, $post->note->author);
+        static::assertInstanceOf(User::class, $note->author);
+        static::assertInstanceOf(User::class, $post->note->author);
 
-        $this->assertEquals($user->id, $note->author->id);
-        $this->assertEquals($user->id, $post->note->author->id);
+        static::assertEquals($user->id, $note->author->id);
+        static::assertEquals($user->id, $post->note->author->id);
     }
 
     /** @test */
@@ -92,25 +92,25 @@ class NoteTest extends TestCase
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
 
-        $this->assertNull($post->note);
+        static::assertNull($post->note);
 
         $note = $post->createNote($content = 'Hello world #1');
 
-        $this->assertInstanceOf(Note::class, $post->note);
+        static::assertInstanceOf(Note::class, $post->note);
 
-        $this->assertSame($note->id, $post->note->id);
-        $this->assertSame($content, $note->content);
-        $this->assertSame($note->content, $post->note->content);
+        static::assertSame($note->id, $post->note->id);
+        static::assertSame($content, $note->content);
+        static::assertSame($note->content, $post->note->content);
 
         $post->updateNote($content = 'Hello world #2');
 
-        $this->assertInstanceOf(Note::class, $post->note);
+        static::assertInstanceOf(Note::class, $post->note);
 
-        $this->assertSame($note->id, $post->note->id);
-        $this->assertSame($content, $post->note->content);
-        $this->assertNotSame($note->content, $post->note->content);
+        static::assertSame($note->id, $post->note->id);
+        static::assertSame($content, $post->note->content);
+        static::assertNotSame($note->content, $post->note->content);
 
-        $this->assertCount(1, Note::all());
+        static::assertCount(1, Note::all());
     }
 
     /** @test */
@@ -119,13 +119,13 @@ class NoteTest extends TestCase
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
 
-        $this->assertNull($post->note);
+        static::assertNull($post->note);
 
         $note = $post->createNote($content = 'Hello world #1');
 
-        $this->assertSame($post->id, $note->noteable->id);
-        $this->assertSame($post->title, $note->noteable->title);
-        $this->assertSame($post->content, $note->noteable->content);
+        static::assertSame($post->id, $note->noteable->id);
+        static::assertSame($post->title, $note->noteable->title);
+        static::assertSame($post->content, $note->noteable->content);
     }
 
     /* -----------------------------------------------------------------
@@ -139,12 +139,12 @@ class NoteTest extends TestCase
         /** @var  User  $user */
         $user = $this->factory->create(User::class);
 
-        $this->assertCount(0, $user->notes);
+        static::assertCount(0, $user->notes);
 
         $note = $user->createNote($content = 'Hello world #1');
 
-        $this->assertCount(1, $user->notes);
-        $this->assertNull($note->author);
+        static::assertCount(1, $user->notes);
+        static::assertNull($note->author);
     }
 
     /** @test */
@@ -153,12 +153,12 @@ class NoteTest extends TestCase
         /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId  $user */
         $user = $this->factory->create(UserWithAuthorId::class);
 
-        $this->assertCount(0, $user->notes);
+        static::assertCount(0, $user->notes);
 
         $note = $user->createNote($content = 'Hello world #1');
 
-        $this->assertCount(1, $user->notes);
-        $this->assertSame($user->id, $note->author->id);
+        static::assertCount(1, $user->notes);
+        static::assertSame($user->id, $note->author->id);
     }
 
     /** @test */
@@ -170,7 +170,7 @@ class NoteTest extends TestCase
         $created = $user->createNote($content = 'Hello world #1');
         $note    = $user->findNote($created->id);
 
-        $this->assertSame($note->id, $created->id);
+        static::assertSame($note->id, $created->id);
     }
 
     /** @test */
@@ -179,14 +179,14 @@ class NoteTest extends TestCase
         /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $user */
         $user = $this->factory->create(User::class);
 
-        $this->assertCount(0, $user->notes);
-        $this->assertCount(0, $user->authoredNotes);
+        static::assertCount(0, $user->notes);
+        static::assertCount(0, $user->authoredNotes);
 
         $user->createNote('Hello World #1', $user);
         $user->createNote('Hello World #2', $user);
 
-        $this->assertCount(2, $user->notes);
-        $this->assertCount(2, $user->authoredNotes()->get());
+        static::assertCount(2, $user->notes);
+        static::assertCount(2, $user->authoredNotes()->get());
     }
 
     /** @test */
@@ -202,10 +202,10 @@ class NoteTest extends TestCase
         $userOne->createNote('Hello World #1');
         $userOne->createNote('Hello World #2', $userTwo);
 
-        $this->assertCount(2, $userOne->notes);
-        $this->assertCount(1, $userOne->authoredNotes);
+        static::assertCount(2, $userOne->notes);
+        static::assertCount(1, $userOne->authoredNotes);
 
-        $this->assertCount(0, $userTwo->notes);
-        $this->assertCount(1, $userTwo->authoredNotes);
+        static::assertCount(0, $userTwo->notes);
+        static::assertCount(1, $userTwo->authoredNotes);
     }
 }
