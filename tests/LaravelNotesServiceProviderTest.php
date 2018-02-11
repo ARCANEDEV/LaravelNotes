@@ -53,13 +53,13 @@ class LaravelNotesServiceProviderTest extends TestCase
         ];
 
         foreach ($expectations as $expected) {
-            $this->assertInstanceOf($expected, $this->provider);
+            static::assertInstanceOf($expected, $this->provider);
         }
     }
 
     /** @test */
     public function it_can_provides()
     {
-        $this->assertSame([], $this->provider->provides());
+        static::assertSame([], $this->provider->provides());
     }
 }

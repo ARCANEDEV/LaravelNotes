@@ -69,11 +69,9 @@ abstract class TestCase extends BaseTestCase
     protected function getEnvironmentSetUp($app)
     {
         // Laravel App Configs
-        $app['config']->set('database.default', 'testing');
         $app['config']->set('auth.model', Stubs\Models\User::class);
 
         // Laravel Messenger Configs
-        $app['config']->set('notes.database.connection', 'testing');
         $app['config']->set('notes.authors.model', Stubs\Models\User::class);
     }
 
