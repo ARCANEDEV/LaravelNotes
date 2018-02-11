@@ -2,9 +2,9 @@
 
 ## Table of contents
 
-  1. [Installation and Setup](1.Installation-and-Setup.md)
-  2. [Configuration](2.Configuration.md)
-  3. [Usage](3.Usage.md)
+  1. [Installation and Setup](1-Installation-and-Setup.md)
+  2. [Configuration](2-Configuration.md)
+  3. [Usage](3-Usage.md)
 
 You can customize the package by editing the `config/notes.php` config file:
 
