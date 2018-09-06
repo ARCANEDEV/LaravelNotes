@@ -19,9 +19,9 @@ return [
      */
 
     'database' => [
-        'connection' => config('database.default'),
+        'connection' => env('DB_CONNECTION', 'mysql'),
 
-        'prefix'     => '',
+        'prefix'     => null,
     ],
 
     /* -----------------------------------------------------------------

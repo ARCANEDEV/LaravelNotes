@@ -8,7 +8,7 @@ This Laravel Notes will allow you to add a notes system into your Laravel projec
   * Easy setup &amp; configuration.
   * Well documented &amp; IDE Friendly.
   * Well tested with maximum code quality.
-  * Laravel `5.1` to `5.6` are supported.
+  * Laravel `5.1` to `5.7` are supported.
   * Made with :heart: &amp; :coffee:.
 
 ## Table of contents
