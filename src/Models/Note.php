@@ -63,7 +63,11 @@ class Note extends AbstractModel
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('notes.notes.table', 'notes'));
+        if (is_null($this->table))
+        {
+            $this->setTable(config('notes.notes.table', 'notes'));
+        }
+
     }
 
     /* -----------------------------------------------------------------

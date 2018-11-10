@@ -24,7 +24,11 @@ abstract class AbstractModel extends Model
     {
         parent::__construct($attributes);
 
-        $this->setConnection(config('notes.database.connection'));
+        if (is_null($this->connection))
+        {
+            $this->setConnection(config('notes.database.connection'));
+        }
+        
         $this->setPrefix(config('notes.database.prefix'));
     }
 }
