@@ -43,14 +43,16 @@ trait HasOneNote
      */
     public function createNote($content, $author = null, $reload = true)
     {
-        if ($this->note) $this->note->delete();
+        if ($this->note)
+            $this->note->delete();
 
         /** @var \Arcanedev\LaravelNotes\Models\Note $note */
         $note = $this->note()->create(
             $this->prepareNoteAttributes($content, $author)
         );
 
-        if ($reload) $this->load(['note']);
+        if ($reload)
+            $this->load(['note']);
 
         return $note;
     }
