@@ -23,14 +23,14 @@ class LaravelNotesServiceProviderTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
         $this->provider = $this->app->getProvider(LaravelNotesServiceProvider::class);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($this->provider);
 
@@ -49,7 +49,7 @@ class LaravelNotesServiceProviderTest extends TestCase
             \Illuminate\Support\ServiceProvider::class,
             \Arcanedev\Support\ServiceProvider::class,
             \Arcanedev\Support\PackageServiceProvider::class,
-            \Arcanedev\LaravelNotes\LaravelNotesServiceProvider::class,
+            LaravelNotesServiceProvider::class,
         ];
 
         foreach ($expectations as $expected) {

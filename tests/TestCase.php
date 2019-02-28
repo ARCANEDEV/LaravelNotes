@@ -24,7 +24,7 @@ abstract class TestCase extends BaseTestCase
      | -----------------------------------------------------------------
      */
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -43,20 +43,6 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             \Arcanedev\LaravelNotes\LaravelNotesServiceProvider::class,
-        ];
-    }
-
-    /**
-     * Get package aliases.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     *
-     * @return array
-     */
-    protected function getPackageAliases($app)
-    {
-        return [
-            //
         ];
     }
 
