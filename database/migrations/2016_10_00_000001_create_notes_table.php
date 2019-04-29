@@ -41,7 +41,7 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->text('content');
             $table->morphs('noteable');
-            $table->unsignedInteger('author_id')->nullable();
+            $table->unsignedBigInteger('author_id')->nullable();
             $table->timestamps();
 
             $table->foreign('author_id')
