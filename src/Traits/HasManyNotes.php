@@ -40,14 +40,15 @@ trait HasManyNotes
      * @param  string                                    $content
      * @param  \Illuminate\Database\Eloquent\Model|null  $author
      * @param  bool                                      $reload
+     * @param  string|null                               $title
      *
      * @return \Arcanedev\LaravelNotes\Models\Note
      */
-    public function createNote($content, $author = null, $reload = true)
+    public function createNote($content, $author = null, $reload = true, $title = null)
     {
         /** @var \Arcanedev\LaravelNotes\Models\Note $note */
         $note = $this->notes()->create(
-            $this->prepareNoteAttributes($content, $author)
+            $this->prepareNoteAttributes($content, $author, $title)
         );
 
         if ($reload) {
@@ -84,14 +85,16 @@ trait HasManyNotes
      *
      * @param  string                                    $content
      * @param  \Illuminate\Database\Eloquent\Model|null  $author
+     * @param  string|null                               $title
      *
      * @return array
      */
-    protected function prepareNoteAttributes($content, Model $author = null)
+    protected function prepareNoteAttributes($content, Model $author = null, $title)
     {
         return [
             'author_id' => is_null($author) ? $this->getCurrentAuthorId() : $author->getKey(),
             'content'   => $content,
+            'title'     => $title,
         ];
     }
 
