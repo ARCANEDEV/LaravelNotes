@@ -65,6 +65,13 @@ class Post extends Model {
 }
 ```
 
+#### Add With Title
+
+```php
+$post = App\Post::first();
+$note = $post->createNote('Hello world #1', null, true, 'Title #1');
+```
+
 #### Getting Notes
 
 ```php
