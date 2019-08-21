@@ -38,17 +38,18 @@ trait HasOneNote
      * @param  string                                    $content
      * @param  \Illuminate\Database\Eloquent\Model|null  $author
      * @param  bool                                      $reload
+     * @param  string|null                               $title
      *
      * @return \Arcanedev\LaravelNotes\Models\Note
      */
-    public function createNote($content, $author = null, $reload = true)
+    public function createNote($content, $author = null, $reload = true, $title = null)
     {
         if ($this->note)
             $this->note->delete();
 
         /** @var \Arcanedev\LaravelNotes\Models\Note $note */
         $note = $this->note()->create(
-            $this->prepareNoteAttributes($content, $author)
+            $this->prepareNoteAttributes($content, $author, $title)
         );
 
         if ($reload)
@@ -63,13 +64,14 @@ trait HasOneNote
      * @param  string                                    $content
      * @param  \Illuminate\Database\Eloquent\Model|null  $author
      * @param  bool                                      $reload
+     * @param  string|null                               $title
      *
      * @return bool
      */
-    public function updateNote($content, Model $author = null, $reload = true)
+    public function updateNote($content, Model $author = null, $reload = true, $title = null)
     {
         $updated = $this->note->update(
-            $this->prepareNoteAttributes($content, $author)
+            $this->prepareNoteAttributes($content, $author, $title)
         );
 
         if ($reload) $this->load(['note']);
@@ -87,14 +89,16 @@ trait HasOneNote
      *
      * @param  string                                    $content
      * @param  \Illuminate\Database\Eloquent\Model|null  $author
+     * @param  string|null                               $title
      *
      * @return array
      */
-    protected function prepareNoteAttributes($content, Model $author = null)
+    protected function prepareNoteAttributes($content, Model $author = null, $title)
     {
         return [
             'author_id' => is_null($author) ? $this->getCurrentAuthorId() : $author->getKey(),
             'content'   => $content,
+            'title'     => $title,
         ];
     }
 
