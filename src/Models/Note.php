@@ -7,6 +7,7 @@
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
  * @property  int                                  id
+ * @property  string                               title
  * @property  string                               content
  * @property  int                                  noteable_id
  * @property  string                               noteable_type
@@ -30,6 +31,7 @@ class Note extends AbstractModel
      * @var array
      */
     protected $fillable = [
+        'title',
         'content',
         'author_id',
     ];
