@@ -29,14 +29,20 @@ class Note extends AbstractModel
      *
      * @var array
      */
-    protected $fillable = ['content', 'author_id'];
+    protected $fillable = [
+        'content',
+        'author_id',
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['noteable_id', 'noteable_type'];
+    protected $hidden = [
+        'noteable_id',
+        'noteable_type',
+    ];
 
     /**
      * The attributes that should be cast to native types.

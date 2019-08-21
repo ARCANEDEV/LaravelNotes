@@ -24,7 +24,7 @@ abstract class TestCase extends BaseTestCase
      | -----------------------------------------------------------------
      */
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -42,22 +42,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
-            \Orchestra\Database\ConsoleServiceProvider::class,
             \Arcanedev\LaravelNotes\LaravelNotesServiceProvider::class,
-        ];
-    }
-
-    /**
-     * Get package aliases.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     *
-     * @return array
-     */
-    protected function getPackageAliases($app)
-    {
-        return [
-            //
         ];
     }
 
@@ -69,11 +54,9 @@ abstract class TestCase extends BaseTestCase
     protected function getEnvironmentSetUp($app)
     {
         // Laravel App Configs
-        $app['config']->set('database.default', 'testing');
         $app['config']->set('auth.model', Stubs\Models\User::class);
 
         // Laravel Messenger Configs
-        $app['config']->set('notes.database.connection', 'testing');
         $app['config']->set('notes.authors.model', Stubs\Models\User::class);
     }
 
@@ -87,15 +70,14 @@ abstract class TestCase extends BaseTestCase
      */
     protected function migrate()
     {
-        $this->artisan('migrate', [
-            '--database' => 'testing',
-            '--realpath' => realpath(__DIR__.'/../database/migrations'),
+        $migrations = array_map('realpath', [
+            __DIR__.'/../database/migrations',
+            __DIR__.'/fixtures/migrations',
         ]);
 
-        $this->artisan('migrate', [
-            '--database' => 'testing',
-            '--realpath' => realpath(__DIR__.'/fixtures/migrations'),
-        ]);
+        foreach ($migrations as $path) {
+            $this->loadMigrationsFrom($path);
+        }
     }
 
     /**

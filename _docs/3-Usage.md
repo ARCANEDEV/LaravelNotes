@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
     use HasManyNotes;
-    
+
     // Other stuff ...
 }
 ```
@@ -31,9 +31,9 @@ You can call the `createNote()` method on your Eloquent model like below:
 $post = App\Post::first();
 $note = $post->createNote('Hello world #1');
 ```
- 
+
 #### Add With a Author/ User
- 
+
 ```php
 $user = App\User::first();
 $post = App\Post::first();
@@ -50,9 +50,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
     use HasManyNotes;
-    
+
     // Other stuff ...
-    
+
     /**
      * Get the current author's id.
      *
@@ -66,16 +66,16 @@ class Post extends Model {
 ```
 
 #### Getting Notes
- 
+
 ```php
 $post  = App\Post::first();
 $notes = $post->notes;
 ```
- 
+
 > **NOTE :** `$post->notes` relation property is only available in the `HasManyNotes` trait. If you're using `HasOneNote` trait, use `$post->note` instead.    
 
-#### Getting the author's notes 
- 
+#### Getting the author's notes
+
 You can also retrieve all the author's notes by using the `Arcanedev\LaravelNotes\Traits\AuthoredNotes` Trait in your User model (for example).
 
 ```php

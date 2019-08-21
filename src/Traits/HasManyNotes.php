@@ -50,9 +50,14 @@ trait HasManyNotes
             $this->prepareNoteAttributes($content, $author)
         );
 
-        $relations = array_merge(['notes'], method_exists($this, 'authoredNotes') ? ['authoredNotes'] : []);
+        if ($reload) {
+            $relations = array_merge(
+                ['notes'],
+                method_exists($this, 'authoredNotes') ? ['authoredNotes'] : []
+            );
 
-        if ($reload) $this->load($relations);
+            $this->load($relations);
+        }
 
         return $note;
     }
@@ -66,7 +71,7 @@ trait HasManyNotes
      */
     public function findNote($id)
     {
-        return $this->notes()->where('id', $id)->first();
+        return $this->notes()->find($id);
     }
 
     /* -----------------------------------------------------------------

@@ -6,7 +6,7 @@
   2. [Configuration](2-Configuration.md)
   3. [Usage](3-Usage.md)
 
-You can customize the package by editing the `config/notes.php` config file: 
+You can customize the package by editing the `config/notes.php` config file:
 
 ```php
 <?php
@@ -19,9 +19,9 @@ return [
      */
 
     'database' => [
-        'connection' => config('database.default'),
+        'connection' => env('DB_CONNECTION', 'mysql'),
 
-        'prefix'     => '',
+        'prefix'     => null,
     ],
 
     /* -----------------------------------------------------------------
