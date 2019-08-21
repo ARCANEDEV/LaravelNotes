@@ -10,6 +10,7 @@ use Faker\Generator as Faker;
 $factory->define(Note::class, function (Faker $f) {
     return [
         'content' => $f->paragraph,
+        'title'   => $f->sentece,
     ];
 });
 

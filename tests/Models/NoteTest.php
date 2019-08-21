@@ -40,6 +40,26 @@ class NoteTest extends TestCase
     }
 
     /** @test */
+    public function it_can_create_a_note_with_title()
+    {
+        /** @var  Post  $post */
+        $post = $this->factory->create(Post::class);
+
+        static::assertNull($post->note);
+
+        $note = $post->createNote($content = 'Hello world #1', null, true, $title = 'Title #1');
+
+        static::assertInstanceOf(Note::class, $post->note);
+
+        static::assertSame($note->id,      $post->note->id);
+        static::assertSame($content,       $post->note->content);
+        static::assertSame($note->content, $post->note->content);
+        static::assertSame($note->title,   $post->note->title);
+
+        static::assertNull($post->note->author);
+    }
+
+    /** @test */
     public function it_should_create_single_note_for_has_one_note_trait()
     {
         /** @var  Post  $post */
@@ -89,6 +109,31 @@ class NoteTest extends TestCase
     }
 
     /** @test */
+    public function it_can_create_with_author_and_title()
+    {
+        /**
+         * @var  User  $user
+         * @var  Post  $post
+         */
+        $user = $this->factory->create(User::class);
+        $post = $this->factory->create(Post::class);
+
+        $note = $post->createNote($content = 'Hello world #1', $user, true, $title = 'Title #1');
+
+        static::assertSame($content,          $note->content);
+        static::assertSame($content,          $post->note->content);
+
+        static::assertSame($title,            $note->title);
+        static::assertSame($title,            $post->note->title);
+
+        static::assertInstanceOf(User::class, $note->author);
+        static::assertInstanceOf(User::class, $post->note->author);
+
+        static::assertEquals($user->id, $note->author->id);
+        static::assertEquals($user->id, $post->note->author->id);
+    }
+
+    /** @test */
     public function it_can_update_note()
     {
         /** @var  Post  $post */
@@ -104,13 +149,15 @@ class NoteTest extends TestCase
         static::assertSame($content, $note->content);
         static::assertSame($note->content, $post->note->content);
 
-        $post->updateNote($content = 'Hello world #2');
+        $post->updateNote($content = 'Hello world #2', null, true, $title = 'Title #2');
 
         static::assertInstanceOf(Note::class, $post->note);
 
         static::assertSame($note->id, $post->note->id);
         static::assertSame($content, $post->note->content);
+        static::assertSame($title, $post->note->title);
         static::assertNotSame($note->content, $post->note->content);
+        static::assertNotSame($note->title, $post->note->title);
 
         static::assertCount(1, Note::all());
     }
@@ -144,6 +191,20 @@ class NoteTest extends TestCase
         static::assertCount(0, $user->notes);
 
         $note = $user->createNote($content = 'Hello world #1');
+
+        static::assertCount(1, $user->notes);
+        static::assertNull($note->author);
+    }
+
+    /** @test */
+    public function it_can_add_note_with_title()
+    {
+        /** @var  User  $user */
+        $user = $this->factory->create(User::class);
+
+        static::assertCount(0, $user->notes);
+
+        $note = $user->createNote($content = 'Hello world #1', null, true, $title = 'Title #1');
 
         static::assertCount(1, $user->notes);
         static::assertNull($note->author);
