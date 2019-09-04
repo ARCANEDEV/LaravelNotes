@@ -24,6 +24,7 @@ The Laravel Notes package has a few system requirements:
 | ![Laravel Notes v3.x][laravel_notes_3_x] | ![Laravel v5.6][laravel_5_6]                                                           |
 | ![Laravel Notes v4.x][laravel_notes_4_x] | ![Laravel v5.7][laravel_5_7]                                                           |
 | ![Laravel Notes v5.x][laravel_notes_5_x] | ![Laravel v5.8][laravel_5_8]                                                           |
+| ![Laravel Notes v6.x][laravel_notes_6_x] | ![Laravel v6.0][laravel_6_0]                                                           |
 
 [laravel_5_1]:  https://img.shields.io/badge/v5.1-supported-brightgreen.svg?style=flat-square "Laravel v5.1"
 [laravel_5_2]:  https://img.shields.io/badge/v5.2-supported-brightgreen.svg?style=flat-square "Laravel v5.2"
@@ -33,6 +34,7 @@ The Laravel Notes package has a few system requirements:
 [laravel_5_6]:  https://img.shields.io/badge/v5.6-supported-brightgreen.svg?style=flat-square "Laravel v5.6"
 [laravel_5_7]:  https://img.shields.io/badge/v5.7-supported-brightgreen.svg?style=flat-square "Laravel v5.7"
 [laravel_5_8]:  https://img.shields.io/badge/v5.8-supported-brightgreen.svg?style=flat-square "Laravel v5.8"
+[laravel_6_0]:  https://img.shields.io/badge/v6.0-supported-brightgreen.svg?style=flat-square "Laravel v6.0"
 
 [laravel_notes_0_x]: https://img.shields.io/badge/version-0.*-blue.svg?style=flat-square "LaravelNotes v0.*"
 [laravel_notes_1_x]: https://img.shields.io/badge/version-1.*-blue.svg?style=flat-square "LaravelNotes v1.*"
@@ -40,6 +42,7 @@ The Laravel Notes package has a few system requirements:
 [laravel_notes_3_x]: https://img.shields.io/badge/version-3.*-blue.svg?style=flat-square "LaravelNotes v3.*"
 [laravel_notes_4_x]: https://img.shields.io/badge/version-4.*-blue.svg?style=flat-square "LaravelNotes v4.*"
 [laravel_notes_5_x]: https://img.shields.io/badge/version-5.*-blue.svg?style=flat-square "LaravelNotes v5.*"
+[laravel_notes_6_x]: https://img.shields.io/badge/version-6.*-blue.svg?style=flat-square "LaravelNotes v6.*"
 
 ## Composer
 
