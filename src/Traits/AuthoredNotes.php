@@ -18,7 +18,7 @@ trait AuthoredNotes
      */
 
     /**
-     * Relation to ONE note.
+     * Relation to Many notes.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
