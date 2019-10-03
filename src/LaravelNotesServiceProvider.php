@@ -1,6 +1,6 @@
 <?php namespace Arcanedev\LaravelNotes;
 
-use Arcanedev\Support\PackageServiceProvider;
+use Arcanedev\Support\Providers\PackageServiceProvider;
 
 /**
  * Class     LaravelNotesServiceProvider
@@ -30,7 +30,7 @@ class LaravelNotesServiceProvider extends PackageServiceProvider
     /**
      * Register the service provider.
      */
-    public function register()
+    public function register(): void
     {
         parent::register();
 
@@ -40,21 +40,10 @@ class LaravelNotesServiceProvider extends PackageServiceProvider
     /**
      * Boot the service provider.
      */
-    public function boot()
+    public function boot(): void
     {
-        parent::boot();
-
         $this->publishConfig();
-        LaravelNotes::$publishMigrations ? $this->publishMigrations() : $this->loadMigrations();
-    }
 
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [];
+        LaravelNotes::$publishMigrations ? $this->publishMigrations() : $this->loadMigrations();
     }
 }
