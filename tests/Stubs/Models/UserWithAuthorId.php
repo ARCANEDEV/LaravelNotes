@@ -1,4 +1,8 @@
-<?php namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
 
 /**
  * Class     UserWithAuthorId
