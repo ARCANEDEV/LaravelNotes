@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Arcanedev\LaravelNotes\Bases\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -35,7 +37,7 @@ class CreateNotesTable extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
         $this->createSchema(function (Blueprint $table) {
             $table->increments('id');
@@ -46,7 +48,7 @@ class CreateNotesTable extends Migration
 
             $table->foreign('author_id')
                   ->references('id')
-                  ->on(config('notes.authors.table', 'users'))
+                  ->on((string) config('notes.authors.table', 'users'))
                   ->onDelete('cascade');
         });
     }

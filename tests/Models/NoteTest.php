@@ -1,9 +1,11 @@
-<?php namespace Arcanedev\LaravelNotes\Tests\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Tests\Models;
 
 use Arcanedev\LaravelNotes\Models\Note;
-use Arcanedev\LaravelNotes\Tests\Stubs\Models\Post;
-use Arcanedev\LaravelNotes\Tests\Stubs\Models\User;
-use Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId;
+use Arcanedev\LaravelNotes\Tests\Stubs\Models\{Post, User, UserWithAuthorId};
 use Arcanedev\LaravelNotes\Tests\TestCase;
 
 /**
@@ -21,7 +23,7 @@ class NoteTest extends TestCase
      */
 
     /** @test */
-    public function it_can_create_a_note()
+    public function it_can_create_a_note(): void
     {
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
@@ -40,7 +42,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_should_create_single_note_for_has_one_note_trait()
+    public function it_should_create_single_note_for_has_one_note_trait(): void
     {
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
@@ -67,7 +69,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_with_author()
+    public function it_can_create_with_author(): void
     {
         /**
          * @var  User  $user
@@ -89,7 +91,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_can_update_note()
+    public function it_can_update_note(): void
     {
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
@@ -116,7 +118,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reverse_relation()
+    public function it_can_reverse_relation(): void
     {
         /** @var  Post  $post */
         $post = $this->factory->create(Post::class);
@@ -136,7 +138,7 @@ class NoteTest extends TestCase
      */
 
     /** @test */
-    public function it_can_add_note()
+    public function it_can_add_note(): void
     {
         /** @var  User  $user */
         $user = $this->factory->create(User::class);
@@ -150,7 +152,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_can_add_note_without_get_current_author_id_method()
+    public function it_can_add_note_without_get_current_author_id_method(): void
     {
         /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId  $user */
         $user = $this->factory->create(UserWithAuthorId::class);
@@ -164,7 +166,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_can_find_note_by_its_id()
+    public function it_can_find_note_by_its_id(): void
     {
         /** @var  User  $user */
         $user = $this->factory->create(User::class);
@@ -176,7 +178,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_can_retrieve_authored_notes()
+    public function it_can_retrieve_authored_notes(): void
     {
         /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $user */
         $user = $this->factory->create(User::class);
@@ -192,7 +194,7 @@ class NoteTest extends TestCase
     }
 
     /** @test */
-    public function it_must_retrieve_authored_notes_foreach_owner()
+    public function it_must_retrieve_authored_notes_foreach_owner(): void
     {
         /**
          * @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $userOne

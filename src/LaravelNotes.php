@@ -1,4 +1,8 @@
-<?php namespace Arcanedev\LaravelNotes;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes;
 
 /**
  * Class     LaravelNotes
