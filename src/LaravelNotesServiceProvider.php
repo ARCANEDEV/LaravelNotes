@@ -1,4 +1,8 @@
-<?php namespace Arcanedev\LaravelNotes;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes;
 
 use Arcanedev\Support\Providers\PackageServiceProvider;
 
@@ -42,8 +46,12 @@ class LaravelNotesServiceProvider extends PackageServiceProvider
      */
     public function boot(): void
     {
-        $this->publishConfig();
+        if ($this->app->runningInConsole()) {
+            $this->publishConfig();
 
-        LaravelNotes::$publishMigrations ? $this->publishMigrations() : $this->loadMigrations();
+            LaravelNotes::$publishMigrations
+                ? $this->publishMigrations()
+                : $this->loadMigrations();
+        }
     }
 }

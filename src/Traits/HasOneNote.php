@@ -1,4 +1,8 @@
-<?php namespace Arcanedev\LaravelNotes\Traits;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 

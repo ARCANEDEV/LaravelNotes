@@ -1,6 +1,6 @@
 # Laravel Notes [![Packagist License][badge_license]](LICENSE.md) [![For Laravel][badge_laravel]][link-github-repo]
 
-[![Travis Status][badge_build]][link-travis]
+[![Github Workflow Status][badge_build]][link-github-status]
 [![Coverage Status][badge_coverage]][link-scrutinizer]
 [![Scrutinizer Code Quality][badge_quality]][link-scrutinizer]
 [![SensioLabs Insight][badge_insight]][link-insight]
@@ -44,7 +44,7 @@ If you discover any security related issues, please email arcanedev.maroc@gmail.
 
 [badge_laravel]:      https://img.shields.io/badge/For%20Laravel-5.1%20to%206.x-orange.svg?style=flat-square
 [badge_license]:      https://img.shields.io/packagist/l/arcanedev/laravel-notes.svg?style=flat-square
-[badge_build]:        https://img.shields.io/travis/ARCANEDEV/LaravelNotes.svg?style=flat-square
+[badge_build]:        https://img.shields.io/github/workflow/status/ARCANEDEV/LaravelNotes/run-tests?style=flat-square
 [badge_coverage]:     https://img.shields.io/scrutinizer/coverage/g/ARCANEDEV/LaravelNotes.svg?style=flat-square
 [badge_quality]:      https://img.shields.io/scrutinizer/g/ARCANEDEV/LaravelNotes.svg?style=flat-square
 [badge_insight]:      https://img.shields.io/sensiolabs/i/5ff01c70-3ad7-42b5-8c7f-6825b3887118.svg?style=flat-square
@@ -55,9 +55,9 @@ If you discover any security related issues, please email arcanedev.maroc@gmail.
 
 [link-author]:        https://github.com/arcanedev-maroc
 [link-github-repo]:   https://github.com/ARCANEDEV/LaravelNotes
+[link-github-status]: https://github.com/ARCANEDEV/LaravelNotes/actions
 [link-github-issues]: https://github.com/ARCANEDEV/LaravelNotes/issues
 [link-contributors]:  https://github.com/ARCANEDEV/LaravelNotes/graphs/contributors
 [link-packagist]:     https://packagist.org/packages/arcanedev/laravel-notes
-[link-travis]:        https://travis-ci.org/ARCANEDEV/LaravelNotes
 [link-scrutinizer]:   https://scrutinizer-ci.com/g/ARCANEDEV/LaravelNotes/?branch=master
 [link-insight]:       https://insight.sensiolabs.com/projects/5ff01c70-3ad7-42b5-8c7f-6825b3887118

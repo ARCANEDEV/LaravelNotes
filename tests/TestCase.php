@@ -1,4 +1,8 @@
-<?php namespace Arcanedev\LaravelNotes\Tests;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Illuminate\Database\Eloquent\Factory as ModelFactory;
@@ -39,7 +43,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             \Arcanedev\LaravelNotes\LaravelNotesServiceProvider::class,
@@ -51,7 +55,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @param  \Illuminate\Foundation\Application   $app
      */
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         // Laravel App Configs
         $app['config']->set('auth.model', Stubs\Models\User::class);
@@ -68,7 +72,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Migrate the tables.
      */
-    protected function migrate()
+    protected function migrate(): void
     {
         $migrations = array_map('realpath', [
             __DIR__.'/../database/migrations',
@@ -83,7 +87,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Load Model Factories.
      */
-    private function loadFactories()
+    private function loadFactories(): void
     {
         $this->factory = $this->app->make(ModelFactory::class);
         $this->factory->load(__DIR__.'/fixtures/factories');

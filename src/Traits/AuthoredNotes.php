@@ -1,6 +1,11 @@
-<?php namespace Arcanedev\LaravelNotes\Traits;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Traits;
 
 use Arcanedev\LaravelNotes\Models\Note;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Trait     AuthoredNotes
@@ -22,7 +27,7 @@ trait AuthoredNotes
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function authoredNotes()
+    public function authoredNotes(): HasMany
     {
         return $this->hasMany(config('notes.notes.model', Note::class), 'author_id');
     }

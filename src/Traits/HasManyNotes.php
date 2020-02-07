@@ -1,6 +1,11 @@
-<?php namespace Arcanedev\LaravelNotes\Traits;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * Class     HasManyNotes
@@ -9,8 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
  * @property  \Illuminate\Database\Eloquent\Collection  notes
- *
- * @method    \Illuminate\Database\Eloquent\Relations\MorphMany  morphMany(string $related, string $name, string $type = null, string $id = null, string $localKey = null)
  */
 trait HasManyNotes
 {
@@ -24,9 +27,9 @@ trait HasManyNotes
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function notes()
+    public function notes(): MorphMany
     {
-        return $this->morphMany(config('notes.notes.model'), 'noteable');
+        return $this->morphMany((string) config('notes.notes.model'), 'noteable');
     }
 
     /* -----------------------------------------------------------------

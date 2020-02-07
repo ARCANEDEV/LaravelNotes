@@ -1,9 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 use Arcanedev\LaravelNotes\Models\Note;
-use Arcanedev\LaravelNotes\Tests\Stubs\Models\Post;
-use Arcanedev\LaravelNotes\Tests\Stubs\Models\User;
-use Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId;
+use Arcanedev\LaravelNotes\Tests\Stubs\Models\{Post, User, UserWithAuthorId};
 use Faker\Generator as Faker;
 
 /** @var \Illuminate\Database\Eloquent\Factory  $factory */

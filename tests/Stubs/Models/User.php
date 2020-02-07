@@ -1,8 +1,12 @@
-<?php namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
+<?php
 
-use Arcanedev\LaravelNotes\Models\AbstractModel;
-use Arcanedev\LaravelNotes\Traits\AuthoredNotes;
-use Arcanedev\LaravelNotes\Traits\HasManyNotes;
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
+
+use Arcanedev\LaravelNotes\Traits\{AuthoredNotes, HasManyNotes};
+use Arcanedev\Support\Database\Model;
+use Illuminate\Support\Arr;
 
 /**
  * Class     User
@@ -12,7 +16,7 @@ use Arcanedev\LaravelNotes\Traits\HasManyNotes;
  *
  * @property  int  id
  */
-class User extends AbstractModel
+class User extends Model
 {
     /* -----------------------------------------------------------------
      |  Traits
@@ -49,4 +53,24 @@ class User extends AbstractModel
     protected $casts = [
         'id' => 'integer',
     ];
+
+    /* -----------------------------------------------------------------
+     |  Constructor
+     | -----------------------------------------------------------------
+     */
+
+    /**
+     * Note constructor.
+     *
+     * @param  array  $attributes
+     */
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $config = config('notes.database', []);
+
+        $this->setConnection(Arr::get($config, 'connection'));
+        $this->setPrefix(Arr::get($config, 'prefix'));
+    }
 }

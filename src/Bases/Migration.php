@@ -1,4 +1,8 @@
-<?php namespace Arcanedev\LaravelNotes\Bases;
+<?php
+
+declare(strict_types=1);
+
+namespace Arcanedev\LaravelNotes\Bases;
 
 use Arcanedev\Support\Database\Migration as BaseMigration;
 
