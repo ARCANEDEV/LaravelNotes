@@ -49,9 +49,7 @@ class LaravelNotesServiceProvider extends PackageServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishConfig();
 
-            LaravelNotes::$publishMigrations
-                ? $this->publishMigrations()
-                : $this->loadMigrations();
+            LaravelNotes::$publishMigrations ? $this->publishMigrations() : $this->loadMigrations();
         }
     }
 }
