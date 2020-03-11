@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LaravelNotes\Bases;
+namespace Arcanedev\LaravelNotes\Database;
 
 use Arcanedev\Support\Database\Migration as BaseMigration;
 
 /**
  * Class     Migration
  *
- * @package  Arcanedev\LaravelMessenger\Bases
+ * @package  Arcanedev\LaravelNotes\Database
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 abstract class Migration extends BaseMigration

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Arcanedev\LaravelNotes\Bases\Migration;
+use Arcanedev\LaravelNotes\Database\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 /**

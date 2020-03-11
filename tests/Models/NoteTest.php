@@ -16,7 +16,6 @@ use Arcanedev\LaravelNotes\Tests\TestCase;
  */
 class NoteTest extends TestCase
 {
-
     /* -----------------------------------------------------------------
      |  Tests [Has One Note]
      | -----------------------------------------------------------------
@@ -25,8 +24,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_create_a_note(): void
     {
-        /** @var  Post  $post */
-        $post = $this->factory->create(Post::class);
+        $post = $this->createPost();
 
         static::assertNull($post->note);
 
@@ -44,8 +42,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_should_create_single_note_for_has_one_note_trait(): void
     {
-        /** @var  Post  $post */
-        $post = $this->factory->create(Post::class);
+        $post = $this->createPost();
 
         static::assertNull($post->note);
 
@@ -71,12 +68,8 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_create_with_author(): void
     {
-        /**
-         * @var  User  $user
-         * @var  Post  $post
-         */
-        $user = $this->factory->create(User::class);
-        $post = $this->factory->create(Post::class);
+        $user = $this->createUser();
+        $post = $this->createPost();
 
         $note = $post->createNote($content = 'Hello world #1', $user);
 
@@ -93,8 +86,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_update_note(): void
     {
-        /** @var  Post  $post */
-        $post = $this->factory->create(Post::class);
+        $post = $this->createPost();
 
         static::assertNull($post->note);
 
@@ -120,8 +112,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_reverse_relation(): void
     {
-        /** @var  Post  $post */
-        $post = $this->factory->create(Post::class);
+        $post = $this->createPost();
 
         static::assertNull($post->note);
 
@@ -140,8 +131,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_add_note(): void
     {
-        /** @var  User  $user */
-        $user = $this->factory->create(User::class);
+        $user = $this->createUser();
 
         static::assertCount(0, $user->notes);
 
@@ -154,8 +144,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_add_note_without_get_current_author_id_method(): void
     {
-        /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId  $user */
-        $user = $this->factory->create(UserWithAuthorId::class);
+        $user = $this->createUserWithAuthorId();
 
         static::assertCount(0, $user->notes);
 
@@ -168,8 +157,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_find_note_by_its_id(): void
     {
-        /** @var  User  $user */
-        $user = $this->factory->create(User::class);
+        $user = $this->createUser();
 
         $created = $user->createNote($content = 'Hello world #1');
         $note    = $user->findNote($created->id);
@@ -180,8 +168,7 @@ class NoteTest extends TestCase
     /** @test */
     public function it_can_retrieve_authored_notes(): void
     {
-        /** @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $user */
-        $user = $this->factory->create(User::class);
+        $user = $this->createUser();
 
         static::assertCount(0, $user->notes);
         static::assertCount(0, $user->authoredNotes);
@@ -196,12 +183,8 @@ class NoteTest extends TestCase
     /** @test */
     public function it_must_retrieve_authored_notes_foreach_owner(): void
     {
-        /**
-         * @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $userOne
-         * @var  \Arcanedev\LaravelNotes\Tests\Stubs\Models\User  $userTwo
-         */
-        $userOne = $this->factory->create(UserWithAuthorId::class);
-        $userTwo = $this->factory->create(UserWithAuthorId::class);
+        $userOne = $this->createUserWithAuthorId();
+        $userTwo = $this->createUserWithAuthorId();
 
         $userOne->createNote('Hello World #1');
         $userOne->createNote('Hello World #2', $userTwo);
@@ -211,5 +194,40 @@ class NoteTest extends TestCase
 
         static::assertCount(0, $userTwo->notes);
         static::assertCount(1, $userTwo->authoredNotes);
+    }
+
+    /* -----------------------------------------------------------------
+     |  Other Methods
+     | -----------------------------------------------------------------
+     */
+
+    /**
+     * Create a post.
+     *
+     * @return \Arcanedev\LaravelNotes\Tests\Stubs\Models\Post|mixed
+     */
+    protected function createPost()
+    {
+        return factory(Post::class)->create();
+    }
+
+    /**
+     * Create a user.
+     *
+     * @return \Arcanedev\LaravelNotes\Tests\Stubs\Models\User|mixed
+     */
+    protected function createUser()
+    {
+        return factory(User::class)->create();
+    }
+
+    /**
+     * Create a user with author id associated.
+     *
+     * @return \Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId|mixed
+     */
+    protected function createUserWithAuthorId()
+    {
+        return factory(UserWithAuthorId::class)->create();
     }
 }

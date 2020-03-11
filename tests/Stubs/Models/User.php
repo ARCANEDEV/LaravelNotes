@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
 
 use Arcanedev\LaravelNotes\Traits\{AuthoredNotes, HasManyNotes};
-use Arcanedev\Support\Database\Model;
+use Arcanedev\Support\Database\PrefixedModel;
 use Illuminate\Support\Arr;
 
 /**
@@ -16,7 +16,7 @@ use Illuminate\Support\Arr;
  *
  * @property  int  id
  */
-class User extends Model
+class User extends PrefixedModel
 {
     /* -----------------------------------------------------------------
      |  Traits

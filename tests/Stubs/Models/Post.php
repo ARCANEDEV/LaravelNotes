@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
 
 use Arcanedev\LaravelNotes\Traits\HasOneNote;
-use Arcanedev\Support\Database\Model;
+use Arcanedev\Support\Database\PrefixedModel;
 use Illuminate\Support\Arr;
 
 /**
@@ -18,7 +18,7 @@ use Illuminate\Support\Arr;
  * @property  string  title
  * @property  string  content
  */
-class Post extends Model
+class Post extends PrefixedModel
 {
     /* -----------------------------------------------------------------
      |  Traits
