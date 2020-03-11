@@ -19,8 +19,8 @@ return [
      */
 
     'authors' => [
-        'table' => config('auth.table', 'users'),
-        'model' => config('auth.model', App\User::class),
+        'table' => 'users',
+        'model' => App\User::class,
     ],
 
     'notes' => [

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Arcanedev\LaravelNotes\Models;
 
-use Arcanedev\Support\Database\Model;
+use Arcanedev\Support\Database\PrefixedModel;
 use Illuminate\Support\Arr;
 
 /**
@@ -24,7 +24,7 @@ use Illuminate\Support\Arr;
  * @property  \Illuminate\Database\Eloquent\Model  author
  * @property  \Illuminate\Database\Eloquent\Model  noteable
  */
-class Note extends Model
+class Note extends PrefixedModel
 {
     /* -----------------------------------------------------------------
      |  Properties
