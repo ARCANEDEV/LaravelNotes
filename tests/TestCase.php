@@ -10,7 +10,6 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 /**
  * Class     TestCase
  *
- * @package  Arcanedev\LaravelNotes\Tests
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 abstract class TestCase extends BaseTestCase

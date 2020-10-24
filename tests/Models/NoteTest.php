@@ -11,7 +11,6 @@ use Arcanedev\LaravelNotes\Tests\TestCase;
 /**
  * Class     NoteTest
  *
- * @package  Arcanedev\LaravelNotes\Tests\Models
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 class NoteTest extends TestCase

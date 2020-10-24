@@ -7,7 +7,6 @@ namespace Arcanedev\LaravelNotes\Tests\Stubs\Models;
 /**
  * Class     UserWithAuthorId
  *
- * @package  Arcanedev\LaravelNotes\Tests\Stubs\Models
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 class UserWithAuthorId extends User
