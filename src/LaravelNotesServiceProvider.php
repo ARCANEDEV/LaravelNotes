@@ -9,7 +9,6 @@ use Arcanedev\Support\Providers\PackageServiceProvider;
 /**
  * Class     LaravelNotesServiceProvider
  *
- * @package  Arcanedev\LaravelNotes
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 class LaravelNotesServiceProvider extends PackageServiceProvider

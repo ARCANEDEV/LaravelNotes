@@ -11,7 +11,6 @@ use Illuminate\Support\Arr;
 /**
  * Class     User
  *
- * @package  Arcanedev\LaravelNotes\Tests\Stubs\Models
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
  * @property  int  id

@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 /**
  * Class     HasManyNotes
  *
- * @package  Arcanedev\LaravelNotes\Traits
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
  * @property  \Illuminate\Database\Eloquent\Collection  notes

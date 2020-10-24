@@ -10,7 +10,6 @@ use Illuminate\Support\Arr;
 /**
  * Class     Note
  *
- * @package  Arcanedev\LaravelNotes\Models
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
  * @property  int                                  id

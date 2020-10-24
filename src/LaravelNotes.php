@@ -7,7 +7,6 @@ namespace Arcanedev\LaravelNotes;
 /**
  * Class     LaravelNotes
  *
- * @package  Arcanedev\LaravelNotes
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 class LaravelNotes

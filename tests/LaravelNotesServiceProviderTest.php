@@ -9,7 +9,6 @@ use Arcanedev\LaravelNotes\LaravelNotesServiceProvider;
 /**
  * Class     LaravelNotesServiceProviderTest
  *
- * @package  Arcanedev\LaravelNotes\Tests
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 class LaravelNotesServiceProviderTest extends TestCase

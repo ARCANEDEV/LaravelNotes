@@ -9,7 +9,6 @@ use Arcanedev\Support\Database\Migration as BaseMigration;
 /**
  * Class     Migration
  *
- * @package  Arcanedev\LaravelNotes\Database
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  */
 abstract class Migration extends BaseMigration

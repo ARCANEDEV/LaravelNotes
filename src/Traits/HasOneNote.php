@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Trait     HasOneNote
  *
- * @package  Arcanedev\LaravelNotes\Traits
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
  * @property  \Arcanedev\LaravelNotes\Models\Note  note
