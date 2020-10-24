@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Arcanedev\LaravelNotes\Tests\Models;
 
 use Arcanedev\LaravelNotes\Models\Note;
-use Arcanedev\LaravelNotes\Tests\Stubs\Models\{Post, User, UserWithAuthorId};
+use Arcanedev\LaravelNotes\Tests\Stubs\Factories\{PostFactory, UserFactory, UserWithAuthorIdFactory};
+use Arcanedev\LaravelNotes\Tests\Stubs\Models\User;
 use Arcanedev\LaravelNotes\Tests\TestCase;
 
 /**
@@ -205,9 +206,9 @@ class NoteTest extends TestCase
      *
      * @return \Arcanedev\LaravelNotes\Tests\Stubs\Models\Post|mixed
      */
-    protected function createPost()
+    protected static function createPost()
     {
-        return factory(Post::class)->create();
+        return PostFactory::new()->create();
     }
 
     /**
@@ -215,9 +216,9 @@ class NoteTest extends TestCase
      *
      * @return \Arcanedev\LaravelNotes\Tests\Stubs\Models\User|mixed
      */
-    protected function createUser()
+    protected static function createUser()
     {
-        return factory(User::class)->create();
+        return UserFactory::new()->create();
     }
 
     /**
@@ -225,8 +226,8 @@ class NoteTest extends TestCase
      *
      * @return \Arcanedev\LaravelNotes\Tests\Stubs\Models\UserWithAuthorId|mixed
      */
-    protected function createUserWithAuthorId()
+    protected static function createUserWithAuthorId()
     {
-        return factory(UserWithAuthorId::class)->create();
+        return UserWithAuthorIdFactory::new()->create();
     }
 }

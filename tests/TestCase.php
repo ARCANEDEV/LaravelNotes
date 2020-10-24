@@ -15,14 +15,6 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 abstract class TestCase extends BaseTestCase
 {
     /* -----------------------------------------------------------------
-     |  Properties
-     | -----------------------------------------------------------------
-     */
-
-    /** @var  \Illuminate\Database\Eloquent\Factory */
-    protected $factory;
-
-    /* -----------------------------------------------------------------
      |  Main Methods
      | -----------------------------------------------------------------
      */
@@ -31,8 +23,7 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->migrate();
-        $this->withFactories(__DIR__.'/fixtures/factories');
+        $this->migrate();;
     }
 
     /**
