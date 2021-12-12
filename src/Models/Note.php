@@ -12,16 +12,16 @@ use Illuminate\Support\Arr;
  *
  * @author   ARCANEDEV <arcanedev.maroc@gmail.com>
  *
- * @property  int                                  id
- * @property  string                               content
- * @property  int                                  noteable_id
- * @property  string                               noteable_type
- * @property  int                                  author_id
- * @property  \Carbon\Carbon                       created_at
- * @property  \Carbon\Carbon                       updated_at
+ * @property  int                                  $id
+ * @property  string                               $content
+ * @property  int                                  $noteable_id
+ * @property  string                               $noteable_type
+ * @property  int                                  $author_id
+ * @property  \Carbon\Carbon                       $created_at
+ * @property  \Carbon\Carbon                       $updated_at
  *
- * @property  \Illuminate\Database\Eloquent\Model  author
- * @property  \Illuminate\Database\Eloquent\Model  noteable
+ * @property  \Illuminate\Database\Eloquent\Model  $author
+ * @property  \Illuminate\Database\Eloquent\Model  $noteable
  */
 class Note extends PrefixedModel
 {
