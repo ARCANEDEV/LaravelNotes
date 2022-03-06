@@ -12,7 +12,7 @@ use Illuminate\Database\Schema\Blueprint;
  *
  * @see \Arcanedev\LaravelNotes\Models\Note
  */
-class CreateNotesTable extends Migration
+return new class extends Migration
 {
     /* -----------------------------------------------------------------
      |  Constructor
@@ -52,4 +52,4 @@ class CreateNotesTable extends Migration
                   ->onDelete('cascade');
         });
     }
-}
+};
