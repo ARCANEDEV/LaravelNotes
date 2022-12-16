@@ -75,11 +75,13 @@ class Note extends PrefixedModel
     {
         parent::__construct($attributes);
 
-        $config = config('notes.database', []);
+        $config = config('notes', []);
+        $databaseConfig = Arr::get($config, 'database', []);
+        $notesConfig = Arr::get($config, 'notes', []);
 
-        $this->setConnection(Arr::get($config, 'connection'));
-        $this->setPrefix(Arr::get($config, 'prefix'));
-        $this->setTable(Arr::get($config, 'table', 'notes'));
+        $this->setConnection(Arr::get($databaseConfig, 'connection'));
+        $this->setPrefix(Arr::get($databaseConfig, 'prefix'));
+        $this->setTable(Arr::get($notesConfig, 'table', 'notes'));
     }
 
     /* -----------------------------------------------------------------
