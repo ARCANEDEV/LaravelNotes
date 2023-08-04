@@ -8,20 +8,21 @@
 
 ## Version Compatibility
 
-| Laravel                      | Laravel Notes                            |
-|:-----------------------------|:-----------------------------------------|
-| ![Laravel v9.x][laravel_9_x] | ![Laravel Notes v9.x][laravel_notes_9_x] |
-| ![Laravel v8.x][laravel_8_x] | ![Laravel Notes v8.x][laravel_notes_8_x] |
-| ![Laravel v7.x][laravel_7_x] | ![Laravel Notes v7.x][laravel_notes_7_x] |
-| ![Laravel v6.x][laravel_6_x] | ![Laravel Notes v6.x][laravel_notes_6_x] |
-| ![Laravel v5.8][laravel_5_8] | ![Laravel Notes v5.x][laravel_notes_5_x] |
-| ![Laravel v5.7][laravel_5_7] | ![Laravel Notes v4.x][laravel_notes_4_x] |
-| ![Laravel v5.6][laravel_5_6] | ![Laravel Notes v3.x][laravel_notes_3_x] |
-| ![Laravel v5.5][laravel_5_5] | ![Laravel Notes v2.x][laravel_notes_2_x] |
-| ![Laravel v5.4][laravel_5_4] | ![Laravel Notes v1.x][laravel_notes_1_x] |
-| ![Laravel v5.3][laravel_5_3] | ![Laravel Notes v0.x][laravel_notes_0_x] |
-| ![Laravel v5.2][laravel_5_2] | ![Laravel Notes v0.x][laravel_notes_0_x] |
-| ![Laravel v5.1][laravel_5_1] | ![Laravel Notes v0.x][laravel_notes_0_x] |
+| Laravel                        | Laravel Notes                              |
+|:-------------------------------|:-------------------------------------------|
+| ![Laravel v10.x][laravel_10_x] | ![Laravel Notes v10.x][laravel_notes_10_x] |
+| ![Laravel v9.x][laravel_9_x]   | ![Laravel Notes v9.x][laravel_notes_9_x]   |
+| ![Laravel v8.x][laravel_8_x]   | ![Laravel Notes v8.x][laravel_notes_8_x]   |
+| ![Laravel v7.x][laravel_7_x]   | ![Laravel Notes v7.x][laravel_notes_7_x]   |
+| ![Laravel v6.x][laravel_6_x]   | ![Laravel Notes v6.x][laravel_notes_6_x]   |
+| ![Laravel v5.8][laravel_5_8]   | ![Laravel Notes v5.x][laravel_notes_5_x]   |
+| ![Laravel v5.7][laravel_5_7]   | ![Laravel Notes v4.x][laravel_notes_4_x]   |
+| ![Laravel v5.6][laravel_5_6]   | ![Laravel Notes v3.x][laravel_notes_3_x]   |
+| ![Laravel v5.5][laravel_5_5]   | ![Laravel Notes v2.x][laravel_notes_2_x]   |
+| ![Laravel v5.4][laravel_5_4]   | ![Laravel Notes v1.x][laravel_notes_1_x]   |
+| ![Laravel v5.3][laravel_5_3]   | ![Laravel Notes v0.x][laravel_notes_0_x]   |
+| ![Laravel v5.2][laravel_5_2]   | ![Laravel Notes v0.x][laravel_notes_0_x]   |
+| ![Laravel v5.1][laravel_5_1]   | ![Laravel Notes v0.x][laravel_notes_0_x]   |
 
 [laravel_9_x]:  https://img.shields.io/badge/version-9.x-blue.svg?style=flat-square "Laravel v9.x"
 [laravel_8_x]:  https://img.shields.io/badge/version-8.x-blue.svg?style=flat-square "Laravel v8.x"
@@ -36,6 +37,7 @@
 [laravel_5_2]:  https://img.shields.io/badge/version-5.2-blue.svg?style=flat-square "Laravel v5.2"
 [laravel_5_1]:  https://img.shields.io/badge/version-5.1-blue.svg?style=flat-square "Laravel v5.1"
 
+[laravel_notes_10_x]: https://img.shields.io/badge/version-10.x-blue.svg?style=flat-square "LaravelNotes v10.x"
 [laravel_notes_9_x]: https://img.shields.io/badge/version-9.x-blue.svg?style=flat-square "LaravelNotes v9.x"
 [laravel_notes_8_x]: https://img.shields.io/badge/version-8.x-blue.svg?style=flat-square "LaravelNotes v8.x"
 [laravel_notes_7_x]: https://img.shields.io/badge/version-7.x-blue.svg?style=flat-square "LaravelNotes v7.x"
